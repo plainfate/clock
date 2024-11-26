@@ -54,12 +54,18 @@
         </div>
       </div>
     </div>
-    <div style="text-align:center;clear:both;"></div>
   </div>
 </body>
 
 <script>
   window.onload = () => {
+    initTime();
+  }
+
+  /**
+   * 时间初始化
+   */
+  function initTime() {
     // 时钟动画加载时间为3秒，需补上
     const now = new Date(Date.now() + 3000);
     const perHour = 360 / 12;
@@ -67,13 +73,13 @@
     const perSecond = 360 / 60;
     // 设置"时"的角度
     const hour = document.querySelector(".hour");
-    setDeg(hour, (now.getHours() % 12) * perHour + now.getMinutes() * perHourMinute)
+    setDeg(hour, (now.getHours() % 12) * perHour + now.getMinutes() * perHourMinute);
     // 设置"分"的角度
     const minute = document.querySelector(".minute");
-    setDeg(minute, now.getMinutes() * perSecond + now.getSeconds() * perSecond / 60)
+    setDeg(minute, now.getMinutes() * perSecond + now.getSeconds() * perSecond / 60);
     // 设置"秒"的角度
     const second = document.querySelector(".second");
-    setDeg(second, now.getSeconds() * perSecond)
+    setDeg(second, now.getSeconds() * perSecond);
   }
 
   /**
